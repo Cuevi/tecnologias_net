@@ -10,7 +10,8 @@ internal class Program
         {
             new EnvioEstandar(),
             new EnvioUrgente(),
-            new EnvioInternacional()
+            new EnvioInternacional(),
+            new EnvioRecogidaTienda()
         };
 
         decimal pedido = 100m;

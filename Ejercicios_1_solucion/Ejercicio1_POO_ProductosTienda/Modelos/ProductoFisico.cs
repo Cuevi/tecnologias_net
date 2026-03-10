@@ -2,13 +2,14 @@ namespace Ejercicio1_POO_ProductosTienda.Modelos;
 
 public class ProductoFisico : Producto
 {
-    public decimal GastosEnvio { get; set; }
+    private decimal GastosEnvio { get; set; }
+    private decimal precioBase { get; set; }
 
     public ProductoFisico(string nombre, decimal precioBase, decimal gastosEnvio)
         : base(nombre, precioBase)
     {
         precioBase = PrecioBase;
-        GastosEnvio = gastosEnvio;
+        gastosEnvio = GastosEnvio;
     }
 
     public override decimal CalcularPrecioFinal()

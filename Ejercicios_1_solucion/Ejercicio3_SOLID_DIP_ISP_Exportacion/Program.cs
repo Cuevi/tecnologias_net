@@ -13,5 +13,9 @@ internal class Program
         IExportador exportadorPdf = new ExportadorPdf();
         var servicioPdf = new ServicioInformes(exportadorPdf);
         servicioPdf.Exportar("Resumen anual");
+
+        IExportador exportadorJson = new ExportadorJson();
+        var servicioJson = new ServicioInformes(exportadorJson);
+        servicioJson.Exportar("Resumen");
     }
 }

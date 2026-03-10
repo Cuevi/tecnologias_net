@@ -1,27 +1,16 @@
 # Ejercicio 1 – Productos de tienda online (POO) - SOLUCION
 
-## Qué trabaja
-- Encapsulación
-- Abstracción
-- Herencia
-- Polimorfismo
-
-## Enunciado
-Una tienda vende productos físicos y digitales.  
-Cada tipo calcula su precio final de forma distinta:
-
-- `ProductoFisico`: precio base + gastos de envío
-- `ProductoDigital`: precio base sin envío
-
-## Tareas
-1. Ejecuta el proyecto y observa la salida.
-2. Analiza dónde está la encapsulación.
-3. Comprueba el polimorfismo en la lista de `Producto`.
-4. Añade una tercera clase: `ProductoReacondicionado`.
-
 ## ENCAPSULAMIENTO En el clase Producto
 Se ponen privadas los atributos y luego se crean métodos get/set para acceder/modificar estos atributos de forma publica
 
 ## POLIMORFISMO En la clase Producto
+La clase Producto tiene un método llamado "CalcularPrecioFinal" que es abstracto para luego poder
+personalizarlo en las siguientes clases (ProductoDigital y ProductoFisico)
+
+## Añadida tercer clase `ProductoReacondicionado`
+La clase `ProductoReacondicionado` es similar a las clases hermanas, solo que tiene un par de atributos mas
+que es el numero de piezas y su precio, para despues modificar de nuevo el método abstracto para su polimorfismo
+
+
 
 
