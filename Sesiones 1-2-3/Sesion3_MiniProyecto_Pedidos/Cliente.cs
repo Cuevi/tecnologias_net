@@ -11,7 +11,7 @@ namespace Sesion3_MiniProyecto_Pedidos
         public Cliente() { }
         public double CalcularDescuento(double valor)
         {
-            
+            return 0.0;
         }
     }
 }

@@ -18,5 +18,11 @@ namespace Sesion3_MiniProyecto_Pedidos
             this.cuantia = cuantia;
             this.precio = precio;
         }
+
+        public double Subtotal()
+        {
+            //TODO
+            return 1.1;
+        }
     }
 }
