@@ -22,7 +22,7 @@ namespace Sesion1_Practica_Producto
                 p.MostrarInfo();
 
                 // Prueba opcional (descomentar) para ver validación:
-                // var p2 = new Producto("", -5);
+                 var p2 = new Producto("", -5);
             }
             catch (Exception ex)
             {
