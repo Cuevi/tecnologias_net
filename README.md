@@ -1,6 +1,8 @@
-﻿# 🧩 .NET Practice Projects
+ # ⚠️ ¡¡DISCLAIMER!! 
 
-> Colección de ejercicios y pequeños proyectos desarrollados con tecnologías **.NET** para practicar conceptos de backend, arquitectura y buenas prácticas.
+Este readme es una plantilla, no está terminado y se irá modificando a lo largo del desarrollo de los distintos proyectos.
+
+ # 🧩 .NET Practice Projects
 
 ---
 
@@ -10,7 +12,9 @@ Este repositorio contiene diferentes **ejercicios, pruebas y pequeños proyectos
 
 Los objetivos principales son:
 
-- Practicar conceptos de programación backend
+- Practicar POO
+- Uso de SOLID
+- Practicar conceptos de programación tanto backend como frontend
 - Experimentar con distintas tecnologías de .NET
 - Mejorar la organización de proyectos
 - Aplicar buenas prácticas de desarrollo
@@ -27,16 +31,14 @@ Algunas de las tecnologías usadas en este repositorio:
 - 🧠 **C#**
 - 🌐 **ASP.NET Core**
 - 🗄 **Entity Framework**
-- 🔗 **REST APIs**
-- 🧪 **xUnit / Testing**
-
-*(Modifica esta lista según lo que uses realmente)*
+- 🔗 **APIs**
+- 🧪 **Testing**
 
 ---
 
 ## 📂 Estructura del repositorio
 
-Ejemplo de organización del proyecto:
+Organización del proyecto orientativa, puede no coincidir los nombres aquí expuestos con los reales:
 
 ```
 /dotnet-practice
@@ -54,14 +56,13 @@ Ejemplo de organización del proyecto:
 └── README.md
 ```
 
-*(Puedes cambiar esta estructura según tu repositorio real)*
 
 ---
 
 ## 💻 Proyectos incluidos
 
 ### 📝 Todo API
-Pequeña API REST para gestionar tareas.
+API aún por desarrollar.
 
 Características:
 
@@ -96,7 +97,7 @@ Aplicación de consola para practicar:
 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tuusuario/dotnet-practice.git
+git clone https://github.com/Cuevi/dotnet-practice.git
 ```
 
 2. Entrar en el proyecto que quieras ejecutar
@@ -136,9 +137,9 @@ Algunos conceptos que se practican en este repositorio:
 
 ## 👨‍💻 Autor
 
-Proyecto desarrollado por **[Tu Nombre]**
+Proyecto desarrollado por **David Cuevas Carrasco**
 
-- GitHub: https://github.com/tuusuario
+- GitHub: https://github.com/cuevi
 
 ---
 
