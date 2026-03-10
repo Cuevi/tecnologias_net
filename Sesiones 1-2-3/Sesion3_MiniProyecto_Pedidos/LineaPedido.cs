@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sesion3_MiniProyecto_Pedidos
 {
-    internal class LineaPedido
+    public class LineaPedido
     {
         public string nombre;
         public int cuantia;
@@ -21,8 +21,7 @@ namespace Sesion3_MiniProyecto_Pedidos
 
         public double Subtotal()
         {
-            //TODO
-            return 1.1;
+            return precio*cuantia;
         }
     }
 }

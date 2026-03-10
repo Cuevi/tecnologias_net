@@ -20,4 +20,8 @@ Cada tipo calcula su precio final de forma distinta:
 4. Añade una tercera clase: `ProductoReacondicionado`.
 
 ## ENCAPSULAMIENTO En el clase Producto
-Se ponen privadas los atributos y luego se crean métodos get/set para acceder/modificar estos atributos
+Se ponen privadas los atributos y luego se crean métodos get/set para acceder/modificar estos atributos de forma publica
+
+## POLIMORFISMO En la clase Producto
+
+

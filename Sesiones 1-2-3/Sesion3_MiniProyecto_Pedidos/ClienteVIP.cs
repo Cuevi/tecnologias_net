@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sesion3_MiniProyecto_Pedidos
 {
-    internal class ClienteVIP : Cliente
+    public class ClienteVIP : Cliente
     {
         private string nombre;
-        public ClienteVIP(string nombre)
+        public ClienteVIP(string nombre) : base(nombre)
         { 
             this.nombre = nombre;  
         }
+        public override double CalcularDescuento(double total) => total * 0.20;
     }
 }

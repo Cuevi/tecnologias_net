@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sesion3_MiniProyecto_Pedidos
 {
-    internal class Cliente
+    public abstract class Cliente
     {
-        public Cliente() { }
-        public double CalcularDescuento(double valor)
+        public string Nombre { get; }
+        public Cliente(string nombre) 
         {
-            return 0.0;
+            Nombre = nombre;
         }
+        public abstract double CalcularDescuento(double total);
     }
 }
