@@ -274,7 +274,7 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.WriteLine("------------------------------");
             Console.WriteLine("Introduzca su fecha de nacimiento con formato dd/mm/yyyy");
             string textoIntroducido = Console.ReadLine() ?? "";
-            DateTime fecha = DateTime.ParseExact(textoIntroducido, "dd/MM/yyyy", CultureInfo.InvariantCulture); ;
+            DateTime fecha = DateTime.ParseExact(textoIntroducido, "dd/MM/yyyy", CultureInfo.InvariantCulture); 
             int anyoDiferencia = DateTime.Now.Year - fecha.Year;
             if (fecha.Date > DateTime.Now.AddYears(-anyoDiferencia)) anyoDiferencia--;
             Console.WriteLine($"Tu fecha de naciemiento es: {fecha} y tu edad es: {anyoDiferencia}");
