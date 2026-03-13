@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace M2_FundamentosdeC_2DavidCuevas
 {
@@ -117,18 +118,27 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.Clear();
             Console.WriteLine("1. Fundamentos del Lenguaje C#");
             Console.WriteLine("------------------------------");
-        IntroduccionNombre:
             Console.WriteLine("Introduce nombre de usuario:");
             string nombre = Console.ReadLine() ?? "";
-            if (checkNombre(nombre)) goto IntroduccionNombre;
-            IntroduccionEdad:
-            Console.WriteLine("Introduce nombre edad:");
+            while (checkNombre(nombre)) 
+            {
+                Console.WriteLine("Introduzca un nombre valido");
+                nombre = Console.ReadLine() ?? ""; 
+            } 
+            Console.WriteLine("Introduce edad:");
             string edad = Console.ReadLine() ?? "";
-            if (checkEdad(edad)) goto IntroduccionEdad;
-            IntroduccionAltura:
+            while (checkEdad(edad))
+            {
+                Console.WriteLine("Introduzca una edad valida");
+                edad = Console.ReadLine() ?? "";
+            }
             Console.WriteLine("Introduce altura:");
             string altura = Console.ReadLine() ?? "";
-            if (checkAltura(altura)) goto IntroduccionAltura;
+            while (checkAltura(altura))
+            {
+                Console.WriteLine("Introduzca una altura valida");
+                altura = Console.ReadLine() ?? "";
+            }
             Console.WriteLine("¿Es estudiante el usuario?: (si se deja en blanco se considera que no lo es)");
             string esEstudianteText = Console.ReadLine() ?? "";
             bool esEstudianteFormated = EsEstudianteFormated(esEstudianteText);
@@ -178,9 +188,12 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.WriteLine("Introduzca el primer numero: (si se deja vacío se considerará 0)");
             string primerNumero = string.IsNullOrEmpty(Console.ReadLine()) ? "0" : Console.ReadLine() ?? "";
             Console.WriteLine("Introduzca el segundo numero:");
-        IntroducirSegundo:
             string segundoNumero = Console.ReadLine() ?? "";
-            if (checkSegundoNumero(segundoNumero)) goto IntroducirSegundo;
+            if (checkSegundoNumero(segundoNumero))
+            {
+                Console.WriteLine("Introduzca un numero valido que no sea 0");
+                segundoNumero = Console.ReadLine() ?? "";
+            }
             Console.WriteLine($"Primer numero: {primerNumero}, Segundo numero: {segundoNumero}\n" +
                 $"Suma: {int.Parse(primerNumero) + int.Parse(segundoNumero)}\n" +
                 $"Resta: {int.Parse(primerNumero) - int.Parse(segundoNumero)}\n" +
@@ -196,34 +209,54 @@ namespace M2_FundamentosdeC_2DavidCuevas
         }
         #endregion
         #region Ejercicio 3
+        //TODO: Mejorar los while para que sean más optimos
         static void ConversorDeTipos()
         {
             Console.Clear();
             Console.WriteLine("3. Conversor de tipos");
             Console.WriteLine("------------------------------");
-        IntroducirPrimerNumero:
             Console.WriteLine("Introduzca el primer numero:");
             string textoEnConsola = Console.ReadLine() ?? "";
-            if (!int.TryParse(textoEnConsola, out int primerInt)) { Console.WriteLine("Introduzca un numero entero valido"); goto IntroducirPrimerNumero; }
-        IntroducirSegundoNumero:
+            bool textoConsolaok = !int.TryParse(textoEnConsola, out int primerInt);
+            while(textoConsolaok) 
+            { 
+                Console.WriteLine("Introduzca un numero entero valido");
+                textoEnConsola = Console.ReadLine() ?? "";
+                textoConsolaok = !int.TryParse(textoEnConsola, out int primerInt2);
+                primerInt = primerInt2;
+            }
             Console.WriteLine("Introduzca el segundo numero:");
             string textoEnConsola2 = Console.ReadLine() ?? "";
-            if (!double.TryParse(textoEnConsola2.Replace(',', '.'), CultureInfo.InvariantCulture, out double segundoDouble)) { Console.WriteLine("Introduzca un numero real valido"); goto IntroducirSegundoNumero; }
+            bool textoConsola2ok = !double.TryParse(textoEnConsola2.Replace(',', '.'), CultureInfo.InvariantCulture, out double segundoDouble);
+            while(textoConsola2ok) 
+            { 
+                Console.WriteLine("Introduzca un numero real valido");
+                textoEnConsola2 = Console.ReadLine() ?? "";
+                textoConsola2ok = !double.TryParse(textoEnConsola2.Replace(',', '.'), CultureInfo.InvariantCulture, out double segundoDouble2);
+                segundoDouble = segundoDouble2;
+            }
             Console.WriteLine($"Primer valor introducido: {primerInt}, Segundo valor introducido: {segundoDouble}\n" +
                 $"Conversion de int {primerInt} a double -> {(double)primerInt}\n" +
                 $"Conversion de double {segundoDouble} a int -> {(int)segundoDouble}");
         }
         #endregion
         #region Ejercicio 4
+        //TODO: Mejorar while
         static void AnalizadorDeNumeros()
         {
             Console.Clear();
             Console.WriteLine("4. Analizador de número");
             Console.WriteLine("------------------------------");
-        IntroducirPrimerNumero:
             Console.WriteLine("Introduzca un numero entero:");
             string textoEnConsola = Console.ReadLine() ?? "";
-            if (!int.TryParse(textoEnConsola, out int primerInt)) { Console.WriteLine("Introduzca un numero entero valido"); goto IntroducirPrimerNumero; }
+            bool textoEnConsolaok = !int.TryParse(textoEnConsola, out int primerInt);
+            while (textoEnConsolaok) 
+            { 
+                Console.WriteLine("Introduzca un numero entero valido");
+                textoEnConsola = Console.ReadLine() ?? "";
+                textoEnConsolaok = !int.TryParse(textoEnConsola, out int primerInt2);
+                primerInt = primerInt2;
+            }
             Console.WriteLine($"Numero introducido: {primerInt}\n" +
                 $"Es mayor que 0: {primerInt > 0}\n" +
                 $"Es menor que 100: {primerInt < 100}\n" +
@@ -253,18 +286,39 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.Clear();
             Console.WriteLine("6. Calculadora de media de notas");
             Console.WriteLine("------------------------------");
-        IntroducirPrimeraNota:
             Console.WriteLine("Introduzca la primera nota:");
             string texto1 = Console.ReadLine() ?? "";
-            if (!double.TryParse(texto1.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota1)) { Console.WriteLine("Introduzca una nota correcta"); goto IntroducirPrimeraNota; }
-        IntroducirSegundaNota:
+            bool texto1ok = !double.TryParse(texto1.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota1);
+            //TODO; Mejorar esto
+            while (texto1ok) 
+            { 
+                Console.WriteLine("Introduzca una nota correcta");
+                texto1 = Console.ReadLine() ?? "";
+                texto1ok = !double.TryParse(texto1.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota12);
+                nota1 = nota12;
+            }
             Console.WriteLine("Introduzca la segunda nota:");
             string texto2 = Console.ReadLine() ?? "";
-            if (!double.TryParse(texto2.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota2)) { Console.WriteLine("Introduzca una nota correcta"); goto IntroducirSegundaNota; }
-        IntroducirTercera:
+            bool texto2ok = !double.TryParse(texto2.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota2);
+            //TODO: Mejorar
+            while (texto2ok)
+            { 
+                Console.WriteLine("Introduzca una nota correcta");
+                texto2 = Console.ReadLine() ?? "";
+                texto2ok = !double.TryParse(texto2.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota22);
+                nota2 = nota22;
+            }
             Console.WriteLine("Introduzca la tercera nota:");
             string texto3 = Console.ReadLine() ?? "";
-            if (!double.TryParse(texto3.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota3)) { Console.WriteLine("Introduzca una nota correcta"); goto IntroducirTercera; }
+            bool texto3ok = !double.TryParse(texto3.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota3);
+            //TODO: Mejorar
+            while (texto3ok) 
+            { 
+                Console.WriteLine("Introduzca una nota correcta");
+                texto3 = Console.ReadLine() ?? "";
+                texto3ok = !double.TryParse(texto3.Replace(',', '.'), CultureInfo.InvariantCulture, out double nota32);
+                nota3 = nota32;
+            }
             Console.WriteLine($"Las notas introducidas son: {nota1}, {nota2} y {nota3}\n" +
                 $"La media de las notas es: {(nota1 + nota2 + nota3) / 3:F2}\n" +
                 $"¿Está aprobado?: {((nota1 + nota2 + nota3) / 3)>5}");
@@ -279,9 +333,16 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.WriteLine("Conversor de euros a dolares");
             Console.WriteLine("Vamos a suponer que la conversion es 1:1.5 es decir 1 euro son 1,5 dolares");
             Console.WriteLine("Introduzca la cuantía en euros a convertir:");
-        IntroducirEuros:
             string cuantiaTexto = Console.ReadLine() ?? "0";
-            if (!double.TryParse(cuantiaTexto.Replace(',', '.'), CultureInfo.InvariantCulture, out double cuantia)) { Console.WriteLine("Introduzca una nota correcta"); goto IntroducirEuros; }
+            bool cuantiaTextook = !double.TryParse(cuantiaTexto.Replace(',', '.'), CultureInfo.InvariantCulture, out double cuantia);
+            //TODO: Mejorar
+            while (cuantiaTextook) 
+            { 
+                Console.WriteLine("Introduzca una nota correcta");
+                cuantiaTexto = Console.ReadLine() ?? "0";
+                cuantiaTextook = !double.TryParse(cuantiaTexto.Replace(',', '.'), CultureInfo.InvariantCulture, out double cuantia2);
+                cuantia = cuantia2;
+            }
             Console.WriteLine($"Cuantia introducida: {cuantia}€ a un ratio de 1:1.5 son {cuantia*1.5:F2}$");
         }
         #endregion
@@ -292,9 +353,15 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.WriteLine("8. Detector de número par o impar");
             Console.WriteLine("------------------------------");
             Console.WriteLine("Introduzca un numero para saber si es par o impar:");
-        IntroducirNumero:
             string numeroTexto = Console.ReadLine() ?? "0";
-            if (!int.TryParse(numeroTexto, out int numero)) { Console.WriteLine("Introduzca una nota correcta"); goto IntroducirNumero; }
+            bool numeroTextook = !int.TryParse(numeroTexto, out int numero);
+            while (numeroTextook)
+            { 
+                Console.WriteLine("Introduzca una nota correcta (Numero entero)");
+                numeroTexto = Console.ReadLine() ?? "0";
+                numeroTextook = !int.TryParse(numeroTexto, out int numero2);
+                numero = numero2;
+            }
             string parImpar = numero % 2 == 0 ? "par" : "impar";
             string positivoNegativo = numero < 0 ? "negativo" : "positivo";
             Console.WriteLine($"El número introducido: {numero} es {parImpar} y {positivoNegativo}");
@@ -306,12 +373,14 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.Clear();
             Console.WriteLine("9. Proyecto: Calculadora profesional básica");
             Console.WriteLine("------------------------------");
-            Console.WriteLine("Introduzca el primer numero: (si se deja vacío se considerará 0)");
+            Console.WriteLine("Introduzca el primer numero: (si se deja vacío se considerará 0), si no es numero entero volverá a pedirlo234");
             string primerNumero = string.IsNullOrEmpty(Console.ReadLine()) ? "0" : Console.ReadLine() ?? "";
             Console.WriteLine("Introduzca el segundo numero:");
-        IntroducirSegundo:
             string segundoNumero = Console.ReadLine() ?? "";
-            if (checkSegundoNumero(segundoNumero)) goto IntroducirSegundo;
+            while (checkSegundoNumero(segundoNumero))
+            {
+                segundoNumero = Console.ReadLine() ?? "";
+            } 
             Console.WriteLine($"Primer numero: {primerNumero}, Segundo numero: {segundoNumero}\n" +
                 $"Suma: {int.Parse(primerNumero) + int.Parse(segundoNumero)}\n" +
                 $"Resta: {int.Parse(primerNumero) - int.Parse(segundoNumero)}\n" +
@@ -320,6 +389,7 @@ namespace M2_FundamentosdeC_2DavidCuevas
         }
         #endregion
         #region Ejercicio 10
+        //TODO: Mejorar proyecto
         static void GestorDatosPersonales()
         {
             Console.Clear();
@@ -328,23 +398,41 @@ namespace M2_FundamentosdeC_2DavidCuevas
             Console.WriteLine("Introduzca nombre:");
             string nombre = Console.ReadLine() ?? "";
             Console.WriteLine("Introduzca edad:");
-        IntroducirEdad:
             string edadTexto = Console.ReadLine() ?? "";
-            if(!int.TryParse(edadTexto, out int edad)){ Console.WriteLine("Introduczca una edad valida"); goto IntroducirEdad;}
+            bool edadTextook = !int.TryParse(edadTexto, out int edad);
+            while (edadTextook)
+            { 
+                Console.WriteLine("Introduczca una edad valida");
+                edadTexto = Console.ReadLine() ?? "";
+                edadTextook = !int.TryParse(edadTexto, out int edad2);
+                edad = edad2;
+            }
             Console.WriteLine("Introduzca ciudad:");
             string ciudad = Console.ReadLine() ?? "";
             Console.WriteLine("Introduzca salarioMensual:");
-        IntroducirSalarioMensual:
             string salarioMensualTexto = Console.ReadLine() ?? "";
-            if(!double.TryParse(salarioMensualTexto, out double salarioMensual)) { Console.WriteLine("Introduzca un Salario Mensual correcto:"); goto IntroducirSalarioMensual; }
+            bool salarioMensualTextook = !double.TryParse(salarioMensualTexto, out double salarioMensual);
+            while (salarioMensualTextook) 
+            {
+                Console.WriteLine("Introduzca un Salario Mensual correcto:");
+                salarioMensualTexto = Console.ReadLine() ?? "";
+                salarioMensualTextook = !double.TryParse(salarioMensualTexto, out double salarioMensual2);
+                salarioMensual = salarioMensual2;
+            }
             Console.WriteLine("Introduzca año de nacimiento:");
-        IntroducirNacimiento:
             string nacimientoTexto = Console.ReadLine() ?? "";
-            if (!DateTime.TryParse(nacimientoTexto, out DateTime nacimiento)) { Console.WriteLine("Introduzca una fecha correcta con formato dd/MM/yyyy"); goto IntroducirNacimiento; }
+            bool nacimientoTextook = !DateTime.TryParse(nacimientoTexto, out DateTime nacimiento);
+            while (nacimientoTextook) 
+            { 
+                Console.WriteLine("Introduzca una fecha correcta con formato dd/MM/yyyy");
+                nacimientoTexto = Console.ReadLine() ?? "";
+                nacimientoTextook = !DateTime.TryParse(nacimientoTexto, out DateTime nacimiento2);
+                nacimiento = nacimiento2;
+            }
             Persona persona = new Persona(nombre, edad, ciudad, salarioMensual, nacimiento);
             //Console.WriteLine($"Datos personales introducidos:\n" +
             //    $"Nombre: {persona)}\nEdad: {persona.");
-            Console.WriteLine("POR TERMINAR");
+            Console.WriteLine("TODO");
         }
         #endregion
     }
