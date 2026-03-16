@@ -18,7 +18,8 @@ namespace BibliotecaApp.Services
         public void AgregarLibro(Libro libro)
         {
             //titulo, autor (nombre), categoria, Disponible
-            Console.WriteLine("")
+            Console.WriteLine("");
+            
             libros.Add(libro);
         }
         public List<Libro> LibrosRegistrados()

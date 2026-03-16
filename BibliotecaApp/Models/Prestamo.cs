@@ -8,9 +8,9 @@ namespace BibliotecaApp.Models
 {
     public class Prestamo
     {
-        private Libro libro {  get; set; }
-        private Usuario usuario {  get; set; }
-        private DateTime fechaPrestamo {  get; set; }
+        public Libro libro {  get; set; }
+        public Usuario usuario {  get; set; }
+        public DateTime fechaPrestamo {  get; set; }
         public Prestamo(Libro libro, Usuario usuario, DateTime fechaPrestamo)
         {
             this.libro = libro;
