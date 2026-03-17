@@ -10,21 +10,38 @@ namespace BibliotecaApp.Services
 {
     public class BibliotecaService
     {
-        public List<Libro> libros;
+        static public List<Libro> libros = new();
         public BibliotecaService()
         {
 
         }
-        public void AgregarLibro(Libro libro)
+        public void AgregarLibro()
         {
             //titulo, autor (nombre), categoria, Disponible
-            Console.WriteLine("");
-            
-            libros.Add(libro);
+            Console.WriteLine("Escriba un titulo para el libro:");
+            string titulo = Console.ReadLine() ?? "";
+            Console.WriteLine("Escriba un nombre de autor para el libro:");
+            string nombreAutor = Console.ReadLine() ?? "";
+            Console.WriteLine("Escriba un categoria para el libro:");
+            string categoria = Console.ReadLine() ?? "";
+            Console.WriteLine("Escriba la disponibilidad del libro si/no (En caso de dejarlo vacío o no poner 'no' será true):");
+            string disponibilidadTexto = Console.ReadLine() ?? "";
+            bool disponibilidad = true;
+            if (disponibilidadTexto == "no") disponibilidad = false; 
+            Autor autorNuevo = new Autor(nombreAutor);
+            Categoria categoriaNueva = new Categoria(categoria);
+            Libro libroNuevo = new Libro(titulo, autorNuevo, categoriaNueva, disponibilidad);
+            libros.Add(libroNuevo);
         }
-        public List<Libro> LibrosRegistrados()
+        public void LibrosRegistrados()
         {
-            return libros;
+            foreach (Libro libro in libros) 
+            {
+                string disponibilidadConsola = libro.Disponible ? "si" : "no";
+                Console.WriteLine($"Libro: {libro.titulo}, autor: {libro.autor.nombre}, categoria: {libro.categoria.nombre}" +
+                    $" disponibilidad: {disponibilidadConsola}");
+            }
+            //return libros;
         }
     }
 }

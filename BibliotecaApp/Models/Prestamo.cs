@@ -11,7 +11,7 @@ namespace BibliotecaApp.Models
         public Libro libro {  get; set; }
         public Usuario usuario {  get; set; }
         public DateTime fechaPrestamo {  get; set; }
-        public Prestamo(Libro libro, Usuario usuario, DateTime fechaPrestamo)
+        public Prestamo(Libro libro, Usuario usuario)
         {
             this.libro = libro;
             this.usuario = usuario;

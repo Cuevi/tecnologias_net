@@ -9,6 +9,9 @@ namespace BibliotecaApp.Models
     public class Categoria
     {
         public string nombre {  get; set; }
-        public Categoria() { }
+        public Categoria(string nombre) 
+        {
+            this.nombre = nombre;
+        }
     }
 }

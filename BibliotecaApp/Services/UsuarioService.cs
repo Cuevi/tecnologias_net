@@ -9,10 +9,18 @@ namespace BibliotecaApp.Services
 {
     public class UsuarioService
     {
-        public List<Usuario> usuarios { get; set; }
-        public void registrarUsuario(Usuario usuario)
+        static public List<Usuario> usuarios = new();
+        public void registrarUsuario()
         {
-            usuarios.Add(usuario);
+            Console.WriteLine("Introduzca el nombre de usuario");
+            string nombre = Console.ReadLine() ?? "";
+            Console.WriteLine("Introduzca el DNI de usuario");
+            string DNI = Console.ReadLine() ?? "";
+            Usuario user = new(nombre, DNI);
+            usuarios.Add(user);
+            Console.WriteLine($"El usuario: {nombre}, con DNI: {DNI} ha sido añadido correctamente");
+            Console.WriteLine("Para continuar pulse Enter");
+            Console.ReadLine();
         }
     }
 }
