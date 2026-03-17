@@ -9,7 +9,6 @@ namespace BibliotecaApp.Models
     public class Autor
     {
         public string nombre {  get; set; }
-
         public Autor(string nombre)
         {
             this.nombre = nombre;

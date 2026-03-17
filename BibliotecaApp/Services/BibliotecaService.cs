@@ -11,13 +11,9 @@ namespace BibliotecaApp.Services
     public class BibliotecaService
     {
         static public List<Libro> libros = new();
-        public BibliotecaService()
-        {
-
-        }
+        public BibliotecaService(){ }
         public void AgregarLibro()
         {
-            //titulo, autor (nombre), categoria, Disponible
             Console.WriteLine("Escriba un titulo para el libro:");
             string titulo = Console.ReadLine() ?? "";
             Console.WriteLine("Escriba un nombre de autor para el libro:");
@@ -41,7 +37,6 @@ namespace BibliotecaApp.Services
                 Console.WriteLine($"Libro: {libro.titulo}, autor: {libro.autor.nombre}, categoria: {libro.categoria.nombre}" +
                     $" disponibilidad: {disponibilidadConsola}");
             }
-            //return libros;
         }
     }
 }

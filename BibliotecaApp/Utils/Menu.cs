@@ -9,37 +9,10 @@ namespace BibliotecaApp.Utils
 {
     public class Menu
     {
-        public void runMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("\n=== SISTEMA BIBLIOTECA ===");
-            Console.WriteLine("1. Agregar libro");
-            Console.WriteLine("2. Mostrar libros");
-            Console.WriteLine("3. Registrar usuario");
-            Console.WriteLine("4. Realizar préstamo");
-            Console.WriteLine("0. Salir");
-            chooseOption(Console.ReadLine() ?? "");
-        }
-        //TODO: Hacer el menu con un do while
-        public void chooseOption(string option)
-        {
-            bool optionok = int.TryParse(option, out int value);
-            if (!optionok)
-            {
-                Console.WriteLine("Elija una opción");
-                runMenu();
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Elija opción:");
-                } while (optionok);
-            }
-        }
+        //TODO: Faltan por añadir validaciones y un camino por defecto para cuando no se selecciona una de 
+        //las opciones disponibles
         public static void SeleccionadorEjercicio(BibliotecaService bibliotecaService, UsuarioService usuarioService, PrestamoService prestamoService)
         {
-            
             bool continuar = false;
             do
             {
@@ -79,9 +52,6 @@ namespace BibliotecaApp.Utils
                         break;
                 }
             } while (continuar);
-            //checkSeleccionDel1al10(seleccion);
-            
-
         }
         static bool continuarSioNo(string texto)
         {
@@ -89,40 +59,5 @@ namespace BibliotecaApp.Utils
             if (texto.ToLower() == "s" || texto.ToLower() == "si") result = true;
             return result;
         }
-        //void checkSeleccionDel1al10(string texto)
-        //{
-        //    List<string> opcionesValidas = new List<string>
-        //    {
-        //        "1","2","3","4"
-        //    };
-        //    if (!opcionesValidas.Contains(texto))
-        //    {
-        //        Console.WriteLine($"La opcion {texto} no es valida, por favor, seleccione otra");
-        //        SeleccionadorEjercicio();
-        //    }
-        //}
-        //void continuarOFinalizar()
-        //{
-        //    Console.WriteLine("¿Desea elegir otra opcion? Responda s/n");
-        //    string continuacion = (Console.ReadLine() ?? "n").ToLower();
-        //    if (continuacion != "s" && continuacion != "n")
-        //    {
-        //        Console.WriteLine("Opcion no valida: introduzca s o n");
-        //        continuarOFinalizar();
-
-        //    }
-        //    else
-        //    {
-        //        if (continuacion == "s")
-        //        {
-        //            Console.Clear();
-        //            SeleccionadorEjercicio();
-        //        }
-        //    }
-
-        //}
-
-
-
     }
 }

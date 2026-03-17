@@ -12,6 +12,7 @@ namespace BibliotecaApp.Services
         public List<Prestamo> prestamos = new List<Prestamo>();
         public void realizarPrestamo()
         {
+            //TODO: Se puede mejorar usando usuarios y libros existentes. Mejora del proyecto
             Console.WriteLine("Escriba un titulo para el libro:");
             string titulo = Console.ReadLine() ?? "";
             Console.WriteLine("Escriba un nombre de autor para el libro:");
@@ -36,7 +37,6 @@ namespace BibliotecaApp.Services
                 $" {nombreAutor}");
             Console.WriteLine("Para continuar pulse Enter");
             Console.ReadLine();
-
         }
     }
 }
