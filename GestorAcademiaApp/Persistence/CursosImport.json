@@ -1,0 +1,18 @@
+[
+  {
+    "nombre": "Formacion tecnologias NET avanzada",
+    "duracionHoras": 123
+  },
+  {
+    "nombre": "Segundo curso programacion",
+    "duracionHoras": 354
+  },
+  {
+    "nombre": "HTML y mas",
+    "duracionHoras": 90
+  },
+  {
+    "nombre": ".Net Core",
+    "duracionHoras": 324
+  }
+]

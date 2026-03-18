@@ -1,9 +1,13 @@
-﻿namespace GestorAcademiaApp
+﻿using GestorAcademiaApp.Utils;
+
+namespace GestorAcademiaApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            Inicializacion.DataPersistance();
+            Inicializacion.ImportData();
         }
     }
 }

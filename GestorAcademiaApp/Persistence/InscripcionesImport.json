@@ -1,0 +1,20 @@
+[
+  {
+    "emailAlumno": "d@gmail.com",
+    "nombreCurso": "Nomb1",
+    "fechaInscripcion": "2026-03-18T12:36:33",
+    "fechaLimiteEntrega": "2026-04-02T12:36:33"
+  },
+  {
+    "emailAlumno": "manl@gmail.com",
+    "nombreCurso": "Nombre 3",
+    "fechaInscripcion": "2026-03-18T12:36:33.0807758+01:00",
+    "fechaLimiteEntrega": "2026-04-02T12:36:33.0807775+02:00"
+  },
+  {
+    "emailAlumno": "mar@gmail.com",
+    "nombreCurso": "curso 4",
+    "fechaInscripcion": "2026-07-12T12:36:33.0807784+01:00",
+    "fechaLimiteEntrega": "2026-09-12T12:36:33.0807786+02:00"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "nombre": "Fulano",
+    "email": "fulano@gmail.com",
+    "notas": [ 5, 7, 8 ]
+  },
+  {
+    "nombre": "Mengano",
+    "email": "mengano@gmail.com",
+    "notas": [ 5, 2, 7, 8, 0 ]
+  }
+]
